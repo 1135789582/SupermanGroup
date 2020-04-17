@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.szxs.dao.MembersinfoDao">
+
+    <select id="queryStudent"  resultType="com.szxs.entity.Membersinfo">
+        select * from membersinfo
+    </select>
+
+    <select id="queryStudenById" resultType="com.szxs.entity.Membersinfo" >
+         select * from membersinfo where id = #{id}
+    </select>
+
+    <insert id="addStudent" >
+        insert into membersinfo values(default,#{name},#{age},#{gender},#{telephone},#{email})
+    </insert>
+
+    <update id="updateStudent">
+        update membersinfo
+        set name = #{name} ,gender=#{gender}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteStudent">
+        delete from membersinfo where id = #{id}
+    </delete>
+
+</mapper>
